@@ -18,7 +18,9 @@ Flutter 2.2.3
 
 
 ## How to use
-<[initial_screen](https://user-images.githubusercontent.com/77209137/127069721-7e6308c7-ea4c-49d7-8ed4-dd0864914d0b.jpg)
+
+![initial_screen]<img src="https://user-images.githubusercontent.com/77209137/127069721-7e6308c7-ea4c-49d7-8ed4-dd0864914d0b.jpg" width="400" height="790">
+
 
 " width="200" height="200" />,
 <img src="
