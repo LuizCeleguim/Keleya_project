@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:teste_get/app/routes/routes.dart';
-import 'package:teste_get/app/ui/global_widgets/KButton.dart';
-import 'package:teste_get/app/ui/global_widgets/KInput.dart';
+import 'package:teste_get/app/ui/Widgets/KButton.dart';
+import 'package:teste_get/app/ui/Widgets/Kinput.dart';
+
 import 'package:teste_get/app/theme/colors.dart';
 import 'package:get/get.dart';
 
@@ -169,13 +170,6 @@ class _SignInScreenState extends State<SignInScreen> {
         "Forget you password?",
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
   }
 
   @override

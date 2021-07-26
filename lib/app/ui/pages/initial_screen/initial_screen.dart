@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:teste_get/app/routes/routes.dart';
 import 'package:teste_get/app/theme/colors.dart';
-import 'package:teste_get/app/ui/global_widgets/KButton.dart';
+import 'package:teste_get/app/ui/Widgets/KButton.dart';
 
 import 'package:get/get.dart';
 
