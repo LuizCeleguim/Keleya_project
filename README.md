@@ -18,7 +18,9 @@ Flutter 2.2.3
 
 
 ## How to use
-<img src="url da imagem" width="200" height="200" />
+<img src="
+https://user-images.githubusercontent.com/77209137/127069536-20f64fb7-5aae-48fe-985f-16dbbf1e7363.mp4
+" width="200" height="200" />
 
  
 
