@@ -47,10 +47,7 @@ class _BirthScreenState extends State<BirthScreen> {
         Icons.arrow_back,
         color: AppColors.color_principal_1,
       ),
-      onPressed: () {
-        Get.toNamed(AppRoutes.NameScreen);
-        ;
-      },
+      onPressed: () => Get.back(),
     );
   }
 
@@ -156,18 +153,23 @@ class _BirthScreenState extends State<BirthScreen> {
 
   Container _buildDataPicker() {
     return Container(
-      decoration: BoxDecoration(border: Border.all(width: 0.2)),
+      decoration: BoxDecoration(
+          border: Border.all(width: 0.1),
+          borderRadius: BorderRadius.circular(5)),
       height: Get.height * .07,
       width: Get.width * .90,
-      child: Material(
-        child: InkWell(
-          onTap: () => _selectDate(context), // Refer step 3
-          child: Padding(
-            padding: const EdgeInsets.only(top: 9.0, left: 20),
-            child: Text(
-              "${selectedDate.toLocal()}".split(' ')[0],
-              style: TextStyle(
-                fontSize: 20,
+      child: Padding(
+        padding: const EdgeInsets.all(1.0),
+        child: Material(
+          child: InkWell(
+            onTap: () => _selectDate(context), // Refer step 3
+            child: Padding(
+              padding: const EdgeInsets.only(top: 9.0, left: 20),
+              child: Text(
+                "${selectedDate.toLocal()}".split(' ')[0],
+                style: TextStyle(
+                  fontSize: 20,
+                ),
               ),
             ),
           ),

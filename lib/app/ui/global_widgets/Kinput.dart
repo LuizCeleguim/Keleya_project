@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 
 class KInput extends StatelessWidget {
   final String? labelText;
@@ -41,18 +42,24 @@ class KInput extends StatelessWidget {
         ),
       ),
       child: TextFormField(
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          labelText: this.labelText,
-          suffix: this.showButtonViewText
-              ? this.isObscureText
-                  ? _buildIcon(Icons.visibility_off)
-                  : _buildIcon(Icons.visibility)
-              : null,
-        ),
-        controller: this.controller,
-        obscureText: this.isObscureText,
-      ),
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            labelText: this.labelText,
+            suffix: this.showButtonViewText
+                ? this.isObscureText
+                    ? _buildIcon(Icons.visibility_off)
+                    : _buildIcon(Icons.visibility)
+                : null,
+          ),
+          controller: this.controller,
+          obscureText: this.isObscureText,
+          validator: (value) {
+            if (value?.isEmpty == true)
+              return 'Fill $labelText field';
+            else if (labelText == 'Username' || labelText == 'Your Email') {
+              if (!value.toString().isEmail) return 'Insert a valid email';
+            }
+          }),
     );
   }
 

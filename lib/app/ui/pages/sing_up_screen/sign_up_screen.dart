@@ -12,13 +12,10 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  final TextEditingController _emailEditingController =
-      new TextEditingController();
-  final TextEditingController _passwordEditingController =
-      new TextEditingController();
-  final TextEditingController _confirmPasswordEditingController =
-      new TextEditingController();
-  final _formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   bool showPassword = false;
   bool acceptPrivacyPolicy = false;
@@ -70,7 +67,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           width: Get.width * .90,
           child: KInput(
             labelText: 'Your Email',
-            controller: _emailEditingController,
+            controller: _emailController,
           ),
         ),
         SizedBox(
@@ -82,7 +79,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             labelText: 'Password',
             showButtonViewText: true,
             isObscureText: !this.showPassword,
-            controller: _passwordEditingController,
+            controller: _passwordController,
             toggleObscureText: () {
               setState(() {
                 this.showPassword = !this.showPassword;
@@ -101,7 +98,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         labelText: 'Confirm your Password',
         showButtonViewText: true,
         isObscureText: !this.showPassword,
-        controller: _confirmPasswordEditingController,
+        controller: _confirmPasswordController,
         toggleObscureText: () {
           setState(() {
             this.showPassword = !this.showPassword;
@@ -115,8 +112,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Padding(
       padding: const EdgeInsets.only(top: 18.0),
       child: Container(
-        height: Get.height * .76,
         width: Get.width * 100,
+        height: Get.height * .76,
         decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -158,7 +155,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        Get.toNamed(AppRoutes.NameScreen);
+                        final _password = _passwordController.text.trim();
+                        final _confirmPassword =
+                            _confirmPasswordController.text.trim();
+
+                        if (_password != _confirmPassword) {
+                          Get.snackbar(
+                            'Sign up',
+                            'First password and second does not match',
+                            backgroundColor: Colors.white,
+                          );
+                        } else if (!acceptPrivacyPolicy || !acceptTerms) {
+                          Get.snackbar(
+                            'Sign up',
+                            'You need accept our policy terms',
+                            backgroundColor: Colors.white,
+                          );
+                        } else
+                          Get.toNamed(AppRoutes.NameScreen);
                       }
                     }),
               ),
@@ -203,6 +217,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   Container(
                     height: Get.height * .03,
+                    margin: EdgeInsets.only(bottom: 15),
                     child: _buildCheckList(
                       checked: acceptTerms,
                       label: RichText(

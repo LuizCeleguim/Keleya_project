@@ -10,13 +10,12 @@ class SignInScreen extends StatefulWidget {
   _SignInScreenState createState() => _SignInScreenState();
 }
 
-final TextEditingController _emailEditingController =
-    new TextEditingController();
-final TextEditingController _passwordEditingController =
-    new TextEditingController();
+final _emailController = TextEditingController();
+final _passwordController = TextEditingController();
 
 class _SignInScreenState extends State<SignInScreen> {
   bool showPassword = false;
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   Widget _buildTitle() {
     return Padding(
@@ -109,9 +108,11 @@ class _SignInScreenState extends State<SignInScreen> {
                       fontWeight: FontWeight.bold),
                 ),
                 onPressed: () {
-                  Get.toNamed(
-                    AppRoutes.NameScreen,
-                  );
+                  if (_formKey.currentState?.validate() == true) {
+                    Get.toNamed(
+                      AppRoutes.NameScreen,
+                    );
+                  }
                 },
               ),
             ),
@@ -122,39 +123,42 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   Widget _buildFormSignIn() {
-    return Column(
-      children: [
-        SizedBox(
-          width: Get.width * .90,
-          child: KInput(
-            labelText: 'Username',
-            controller: _emailEditingController,
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          SizedBox(
+            width: Get.width * .90,
+            child: KInput(
+              labelText: 'Username',
+              controller: _emailController,
+            ),
           ),
-        ),
-        SizedBox(
-          height: Get.height * .02,
-        ),
-        SizedBox(
-          width: Get.width * .90,
-          child: KInput(
-            labelText: 'Password',
-            showButtonViewText: true,
-            isObscureText: !this.showPassword,
-            controller: _passwordEditingController,
-            toggleObscureText: () {
-              setState(() {
-                this.showPassword = !this.showPassword;
-              });
-            },
+          SizedBox(
+            height: Get.height * .02,
           ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            _forgetPasswordBtn(),
-          ],
-        ),
-      ],
+          SizedBox(
+            width: Get.width * .90,
+            child: KInput(
+              labelText: 'Password',
+              showButtonViewText: true,
+              isObscureText: !this.showPassword,
+              controller: _passwordController,
+              toggleObscureText: () {
+                setState(() {
+                  this.showPassword = !this.showPassword;
+                });
+              },
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              _forgetPasswordBtn(),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
@@ -165,6 +169,13 @@ class _SignInScreenState extends State<SignInScreen> {
         "Forget you password?",
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 
   @override

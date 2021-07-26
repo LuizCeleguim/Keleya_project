@@ -11,8 +11,8 @@ class NameScreen extends StatefulWidget {
 }
 
 class _NameScreenState extends State<NameScreen> {
-  final TextEditingController _getName = new TextEditingController();
-
+  final _nameController = new TextEditingController();
+  static final _formKey = GlobalKey<FormState>();
   Widget _buildTitle() {
     return Column(
       children: [
@@ -48,45 +48,47 @@ class _NameScreenState extends State<NameScreen> {
         Icons.arrow_back,
         color: AppColors.color_principal_1,
       ),
-      onPressed: () {
-        Get.toNamed(AppRoutes.signUp);
-      },
+      onPressed: () => Get.back(),
     );
   }
 
   Widget _buildBody() {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 170.0, bottom: 0),
-          child: SizedBox(
-            height: Get.height * .07,
-            width: Get.width * .90,
-            child: KInput(
-              labelText: 'Your name',
-              controller: _getName,
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 170.0, bottom: 0),
+            child: SizedBox(
+              height: Get.height * .07,
+              width: Get.width * .90,
+              child: KInput(
+                labelText: 'Your name',
+                controller: _nameController,
+              ),
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 120.0),
-          child: SizedBox(
-            width: Get.width * .90,
-            child: KButton(
-                color: AppColors.color_principal_1,
-                child: Text(
-                  "Next question",
-                  style: TextStyle(
-                      color: AppColors.color_principal_2,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold),
-                ),
-                onPressed: () {
-                  Get.toNamed(AppRoutes.BirthScreen);
-                }),
-          ),
-        )
-      ],
+          Padding(
+            padding: const EdgeInsets.only(top: 120.0),
+            child: SizedBox(
+              width: Get.width * .90,
+              child: KButton(
+                  color: AppColors.color_principal_1,
+                  child: Text(
+                    "Next question",
+                    style: TextStyle(
+                        color: AppColors.color_principal_2,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  onPressed: () {
+                    if (_formKey.currentState?.validate() == true)
+                      Get.toNamed(AppRoutes.BirthScreen);
+                  }),
+            ),
+          )
+        ],
+      ),
     );
   }
 
