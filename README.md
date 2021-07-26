@@ -18,8 +18,32 @@ Flutter 2.2.3
 
 
 ## How to use
+<img src="[initial_screen](https://user-images.githubusercontent.com/77209137/127069721-7e6308c7-ea4c-49d7-8ed4-dd0864914d0b.jpg)
+
+" width="200" height="200" />
 <img src="
-https://user-images.githubusercontent.com/77209137/127069536-20f64fb7-5aae-48fe-985f-16dbbf1e7363.mp4
+
+" width="200" height="200" />
+<img src="
+
+" width="200" height="200" />
+<img src="
+
+" width="200" height="200" />
+<img src="
+
+" width="200" height="200" />
+<img src="
+
+" width="200" height="200" />
+<img src="
+
+" width="200" height="200" />
+<img src="
+
+" width="200" height="200" />
+<img src="
+
 " width="200" height="200" />
 
  
