@@ -37,35 +37,8 @@ Flutter 2.2.3
 
 [final_screen]<img src="https://user-images.githubusercontent.com/77209137/127077229-547ef0db-0eb3-4522-9c7c-44064e1d7662.jpg" width="200" height="500">
 
-[final_screen]<img src="
-https://user-images.githubusercontent.com/77209137/127077305-5c146d35-09e7-4480-bc07-4de74db39aea.mp4" width="200" height="500">
+https://user-images.githubusercontent.com/77209137/127077305-5c146d35-09e7-4480-bc07-4de74db39aea.mp4
 
-
-" width="200" height="200" />,
-<img src="
-
-" width="200" height="200" />
-<img src="
-
-" width="200" height="200" />
-<img src="
-
-" width="200" height="200" />
-<img src="
-
-" width="200" height="200" />
-<img src="
-
-" width="200" height="200" />
-<img src="
-
-" width="200" height="200" />
-<img src="
-
-" width="200" height="200" />
-<img src="
-
-" width="200" height="200" />
 
  
 
