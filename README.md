@@ -26,7 +26,7 @@ Flutter 2.2.3
 ## How to use
 
 
-[App_demonstration]https://user-images.githubusercontent.com/77209137/127077305-5c146d35-09e7-4480-bc07-4de74db39aea.mp4
+https://user-images.githubusercontent.com/77209137/127077305-5c146d35-09e7-4480-bc07-4de74db39aea.mp4
 
 
 [initial_screen]<img src="https://user-images.githubusercontent.com/77209137/127069721-7e6308c7-ea4c-49d7-8ed4-dd0864914d0b.jpg" width="200" height="500">
